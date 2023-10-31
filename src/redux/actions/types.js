@@ -21,3 +21,9 @@ export const SET_ROUTE = "SET_ROUTE";
 export const SET_SEARCH = "SET_SEARCH";
 export const CLEAR_SEARCH = "CLEAR_SEARCH";
 export const CLEAR_LAST_SEARCH = "CLEAR_LAST_SEARCH";
+
+export const SET_SORT = "SET_SORT";
+export const CLEAR_SORT = "CLEAR_SORT";
+
+export const LOGIN = "LOGIN";
+export const LOGOUT = "LOGOUT";

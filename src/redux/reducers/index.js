@@ -6,6 +6,8 @@ import viewFilter from "./viewFilter";
 import route from "./route";
 import cart from "./cart";
 import search from "./search";
+import sort from "./sort";
+import auth from "./auth";
 
 export default combineReducers({
   category,
@@ -15,4 +17,6 @@ export default combineReducers({
   route,
   cart,
   search,
+  sort,
+  auth,
 });

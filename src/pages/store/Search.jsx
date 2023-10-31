@@ -1,6 +1,7 @@
 import { useSelector } from "react-redux";
 import LastKeyword from "../../components/search/LastKeyword";
 import PopularKeyword from "../../components/search/PopularKeyword";
+import GoodsList from "../../components/common/GoodsList";
 
 export const Search = () => {
   const goods = useSelector((state) => state.goods.data);
@@ -30,7 +31,9 @@ export const Search = () => {
           </div>
         </div>
       ) : (
-        <div>{JSON.stringify(filteredGoods)}</div>
+        <div>
+          <GoodsList goods={filteredGoods} showSort />
+        </div>
       )}
     </div>
   );

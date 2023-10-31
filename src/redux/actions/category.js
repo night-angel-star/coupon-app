@@ -1,13 +1,15 @@
 import { SET_CATEGORY, CLEAR_CATEGORY } from "./types";
 import shopService from "../../services/shop.service";
+import { categoryDataProcess } from "../../util/catagoryDataProcess";
 
 export const getCategory = () => async (dispatch) => {
   try {
-    const result = await shopService.getCategories();
-    if (result) {
+    const result = await shopService.getAllCategories();
+    const processResult = await categoryDataProcess(result);
+    if (processResult) {
       await dispatch({
         type: SET_CATEGORY,
-        payload: result,
+        payload: processResult,
       });
       return true;
     } else {

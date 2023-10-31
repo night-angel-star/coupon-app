@@ -1,6 +1,8 @@
+import { MyCart } from "./MyCart";
+import { Login } from "./Login";
 import { useSelector } from "react-redux";
 
 export const My = () => {
-  const cart = useSelector((state) => state.cart.cart);
-  return <div>{JSON.stringify(cart)}</div>;
+  const loginState = useSelector((state) => state.auth.loginState);
+  return loginState ? <MyCart /> : <Login />;
 };

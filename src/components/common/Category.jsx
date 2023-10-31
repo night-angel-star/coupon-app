@@ -26,19 +26,20 @@ export const Category = () => {
       >
         All
       </span>
-      {categories.map((category, i) => (
-        <span
-          className={`p-1 ${
-            categoryFilter === category.id
-              ? "text-red-600 border-0 border-b-[0.7vh] border-solid"
-              : ""
-          }`}
-          key={i}
-          onClick={() => setCategoryFilterHandler(category.id)}
-        >
-          {category.name}
-        </span>
-      ))}
+      {JSON.stringify(categories) !== "{}" &&
+        categories.map((category, i) => (
+          <span
+            className={`p-1 ${
+              categoryFilter === category.id
+                ? "text-red-600 border-0 border-b-[0.7vh] border-solid"
+                : ""
+            }`}
+            key={i}
+            onClick={() => setCategoryFilterHandler(category.id)}
+          >
+            {category.name}
+          </span>
+        ))}
     </div>
   );
 };

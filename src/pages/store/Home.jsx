@@ -1,10 +1,17 @@
 import Ad from "../../components/store/home/Ad";
 import Category from "../../components/common/Category";
-import GoodsListItem from "../../components/common/GoodsListItem";
 import { useSelector } from "react-redux";
+import GoodsList from "../../components/common/GoodsList";
 export const Home = () => {
   const goods = useSelector((state) => state.goods.data);
   const categoryFilter = useSelector((state) => state.viewFilter.category);
+  const sortedGoods = goods.reduce((accumulator, currentValue) => {
+    if (categoryFilter === currentValue.category_id || categoryFilter === "") {
+      return [...accumulator, currentValue];
+    } else {
+      return accumulator;
+    }
+  }, []);
   return (
     <div className="p-[3vw]">
       <Ad />
@@ -12,14 +19,7 @@ export const Home = () => {
         Popular
       </div>
       <Category />
-      <div className="flex flex-wrap justify-start">
-        {goods?.map(
-          (goodsItem, i) =>
-            (categoryFilter === goodsItem.root_id || categoryFilter === "") && (
-              <GoodsListItem goodsInfo={goodsItem} key={i} />
-            )
-        )}
-      </div>
+      <GoodsList goods={sortedGoods} />
     </div>
   );
 };

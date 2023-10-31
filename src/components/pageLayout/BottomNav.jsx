@@ -4,6 +4,10 @@ import { useSelector } from "react-redux";
 // import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { setRoute } from "../../redux/actions/route";
+import {
+  clearCategoryFilter,
+  clearBrandFilter,
+} from "../../redux/actions/viewFilter";
 
 export const BottomNav = () => {
   //const { pathname } = useLocation();
@@ -14,6 +18,8 @@ export const BottomNav = () => {
   //const pageParam = pathArray[1];
   const route = (pagename) => {
     dispatch(setRoute(pagename));
+    dispatch(clearCategoryFilter());
+    dispatch(clearBrandFilter());
   };
 
   return (

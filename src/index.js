@@ -1,5 +1,5 @@
 import React from "react";
-import ReactDOM from "react-dom/client";
+import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
@@ -9,8 +9,7 @@ import { PersistGate } from "redux-persist/integration/react";
 import configureStore from "./redux/configureStore";
 const { store, persistor } = configureStore();
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(
+ReactDOM.render(
   // <React.StrictMode>
   <Provider store={store}>
     <PersistGate loading={null} persistor={persistor}>
@@ -18,7 +17,8 @@ root.render(
         <App />
       </BrowserRouter>
     </PersistGate>
-  </Provider>
+  </Provider>,
+  document.getElementById("root")
   // </React.StrictMode>
 );
 

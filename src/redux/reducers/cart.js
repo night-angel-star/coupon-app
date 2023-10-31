@@ -8,11 +8,11 @@ export function cart(state = initialState, action) {
   const { type, payload } = action;
   switch (type) {
     case SET_CART:
-      const cartInfo = state.cart;
+      let cartInfo = state.cart;
       const index = cartInfo.findIndex((obj) => obj.id === payload.id);
       let newCartInfo = [];
       if (index !== -1) {
-        cartInfo.splice(index, 1);
+        cartInfo[index].count = cartInfo[index].count + 1;
         newCartInfo = [...cartInfo];
       } else {
         cartInfo.push(payload);

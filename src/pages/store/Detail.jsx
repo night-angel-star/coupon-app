@@ -17,9 +17,9 @@ export const Detail = () => {
   const goodsInfo = goodsData.find(
     (item) => item.id === Number.parseInt(pageParam)
   );
-  const cartInfo = useSelector((state) => state.cart.cart);
+  // const cartInfo = useSelector((state) => state.cart.cart);
 
-  const cartIndex = cartInfo.findIndex((obj) => obj.id === goodsInfo.id);
+  // const cartIndex = cartInfo.findIndex((obj) => obj.id === goodsInfo.id);
 
   const addToCart = (id) => {
     dispatch(setCart({ id: id, count: 1 }));
@@ -63,7 +63,7 @@ export const Detail = () => {
           onClick={() => addToCart(goodsInfo.id)}
         >
           <Unicons.UilShoppingCartAlt className="h-[3vh] " />
-          {cartIndex === -1 ? "Cart" : "Remove"}
+          Cart
         </div>
         <div className="bg-red-600 text-white w-[70vw] flex justify-center items-center p-1 text-[3vh]">
           <Unicons.UilCoins className="h-[3vh] " />
